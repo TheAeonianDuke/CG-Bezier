@@ -66,40 +66,51 @@ void calculatePiecewiseCubicBezier(bool endpoint)
 {
 
     if(endpoint) {
+        cubicBezier.clear();
         std::cout << "Entered Cubic Bezier " << " " << points << std::endl;
         if(linearBezDraw==false){
             cubicBezier.clear();
         }
         int sz = controlPoints.size(); // Contains 3 points/vertex. Ignore Z
-        float x[4], y[4];
+
         float delta_t = 1.0 / (SAMPLES_PER_BEZIER - 1.0);
         float t;
 
-        int i = controlPoints.size() - 15;
+//        int i = controlPoints.size() - 15;
+        int diff;
+        if(points ==5)
+        {
+            diff =12;
+        }
+        else{diff = 9;}
+        float x[4], y[4];
+        for(int i=0; i<=(sz-9); i+=9) {
 
-        x[0] = controlPoints[i];
-        y[0] = controlPoints[i + 1];
-        x[1] = controlPoints[i + 3];
-        y[1] = controlPoints[i + 4];
+            std::cout<< "i" << i << sz << std::endl;
+            x[0] = controlPoints[i];
+            y[0] = controlPoints[i + 1];
+            x[1] = controlPoints[i + 3];
+            y[1] = controlPoints[i + 4];
 
-        x[2] = controlPoints[i + 6];
-        y[2] = controlPoints[i + 7];
-        x[3] = controlPoints[i + 9];
-        y[3] = controlPoints[i + 10];
+            x[2] = controlPoints[i + 6];
+            y[2] = controlPoints[i + 7];
+            x[3] = controlPoints[i + 9];
+            y[3] = controlPoints[i + 10];
 
-        cubicBezier.push_back(x[0]);
-        cubicBezier.push_back(y[0]);
-        cubicBezier.push_back(0.0);
-        t = 0.0;
-        for (float j = 1; j < (SAMPLES_PER_BEZIER); j++) {
-            t += delta_t;
-            cubicBezier.push_back(
-                    (x[0] * pow((1 - t), 3)) + (3 * t * x[1] * pow((1 - t), 2)) + (3 * (1 - t) * x[2] * pow(t, 2)) +
-                    (x[3] * pow(t, 3)));
-            cubicBezier.push_back(
-                    (y[0] * pow((1 - t), 3)) + (3 * t * y[1] * pow((1 - t), 2)) + (3 * (1 - t) * y[2] * pow(t, 2)) +
-                    (y[3] * pow(t, 3)));
+            cubicBezier.push_back(x[0]);
+            cubicBezier.push_back(y[0]);
             cubicBezier.push_back(0.0);
+            t = 0.0;
+            for (float j = 1; j < (SAMPLES_PER_BEZIER); j++) {
+                t += delta_t;
+                cubicBezier.push_back(
+                        (x[0] * pow((1 - t), 3)) + (3 * t * x[1] * pow((1 - t), 2)) + (3 * (1 - t) * x[2] * pow(t, 2)) +
+                        (x[3] * pow(t, 3)));
+                cubicBezier.push_back(
+                        (y[0] * pow((1 - t), 3)) + (3 * t * y[1] * pow((1 - t), 2)) + (3 * (1 - t) * y[2] * pow(t, 2)) +
+                        (y[3] * pow(t, 3)));
+                cubicBezier.push_back(0.0);
+            }
         }
 
         cubicBezier.push_back(x[3]);
