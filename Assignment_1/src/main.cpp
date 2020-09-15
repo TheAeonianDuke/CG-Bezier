@@ -4,6 +4,11 @@
 #include <vector>
 #include <algorithm>
 
+// NAME : Abhishek Pratap Singh
+// ROLL : 2018211
+// MAIL : abhishek18211@iiitd.ac.in
+// CREDITS : Template code provided is used as is.
+
 #define DRAW_CUBIC_BEZIER 0 // Use to switch Linear and Cubic bezier curves
 #define SAMPLES_PER_BEZIER 30 //Sample each Bezier curve as N=10 segments and draw as connected lines
 
@@ -77,12 +82,7 @@ void calculatePiecewiseCubicBezier(bool endpoint)
         float t;
 
 //        int i = controlPoints.size() - 15;
-        int diff;
-        if(points ==5)
-        {
-            diff =12;
-        }
-        else{diff = 9;}
+
         float x[4], y[4];
         for(int i=0; i<=(sz-9); i+=9) {
 
