@@ -55,7 +55,7 @@ bool Triangle::intersect(Ray& r) const
 
         r.setParameter(t, this);
 //        intersect.normalize();
-        std::cout<<r.getPosition().X()<<" "<<intersect.X()<<std::endl;
+//        std::cout<<r.getPosition().X()<<" "<<intersect.X()<<std::endl;
         return true;
     }
 

@@ -31,7 +31,7 @@ bool Sphere::intersect(Ray& r) const
 			bool b1 = r.setParameter(t1, this);
 			bool b2 = r.setParameter(t2, this);
 
-			return b1||b2;    
+			return b1||b2;
 		}
 	}
 	return false;

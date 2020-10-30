@@ -16,7 +16,7 @@
 #include "../depends/stb/stb_image.h"
 #include "../depends/stb/stb_image_write.h"
 
-#define RENDER_BATCH_COLUMNS 200 // Number of columns to render in a single go. Increase to gain some display/render speed!
+#define RENDER_BATCH_COLUMNS 20 // Number of columns to render in a single go. Increase to gain some display/render speed!
 
 Camera *camera;
 RenderEngine *engine;
@@ -51,14 +51,14 @@ int main(int, char**)
     world->addLight(light);
 
     Material *m = new Material(world);
-    m->color = Color(0.1, 0.7, 0.0);
-    m->ka = 0.9;
-    m->kd = 0.9;
+    m->color = Color(1.0, 1.0, 1.0);
+    m->ka = 0.1;
+    m->kd = 0.7;
 
     Object *sphere = new Sphere(Vector3D(3, 0, -10), 6, m);
     world->addObject(sphere);
 
-    Object *triangle = new Triangle(Vector3D(-3, 0, 0), Vector3D(0, -3, 0), Vector3D(3, 0, 0), m);
+    Object *triangle = new Triangle(Vector3D(-6, 0, 0), Vector3D(-3, 3, 0), Vector3D(-3, 0, 0), m);
     world->addObject(triangle);
 
     engine = new RenderEngine(world, camera);
