@@ -10,6 +10,7 @@
 #include "lightsource.h"
 #include "pointlightsource.h"
 #include "triangle.h"
+#include "sphere_dielectric.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -41,24 +42,34 @@ int main(int, char**)
 
     //Create a world
     World *world = new World;
-    world->setAmbient(Color(1));
+    world->setAmbient(Color(0.2,0.2,0));
     world->setBackground(Color(0.1, 0.3, 0.6));
-    
 
 
 
-    LightSource *light = new PointLightSource(world, Vector3D(0, 1, -10), Color(1, 1, 1));
+
+    LightSource *light = new PointLightSource(world, Vector3D(-10, 3, 2), Color(1, 1, 0));
     world->addLight(light);
 
-    Material *m = new Material(world);
-    m->color = Color(1.0, 1.0, 1.0);
-    m->ka = 0.1;
-    m->kd = 0.7;
 
-    Object *sphere = new Sphere(Vector3D(3, 0, -10), 3, m);
+    Material *m = new Material(world);
+    m->color = Color(1.0, 0.6, 1.0);
+
+    Material *m2 = new Material(world);
+    m2->color = Color(1.0, 0.8, 0.8);
+
+
+    Object *sphere = new Sphere(Vector3D(3, 0, -5), 3, m);
     world->addObject(sphere);
 
-    Object *triangle = new Triangle(Vector3D(-6, 0, 0), Vector3D(-3, 3, 0), Vector3D(-3, 0, 0), m);
+
+    Object *sphere2 = new Sphere(Vector3D(20, 0, -30), 15, m2);
+    world->addObject(sphere2);
+
+    Object *sphere3 = new Sphere_2(Vector3D(-6, -2, -5), 3, m);
+    world->addObject(sphere3);
+
+    Object *triangle = new Triangle(Vector3D(-3, 0, 0), Vector3D(-3, 3, 0), Vector3D(-1, 0, 0), m);
     world->addObject(triangle);
 
     engine = new RenderEngine(world, camera);

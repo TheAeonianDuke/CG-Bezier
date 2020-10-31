@@ -21,7 +21,7 @@ public:
 		objectList(0), lightSourceList(0), ambient(0), background(0)
 	{}
 	void setBackground(const Color& bk) { background = bk;}
-	Color getbackgeound() { return background;}
+	Color getbackground() { return background;}
 	void setAmbient(const Color& amb) {ambient = amb;}
 	Color getAmbient() {return ambient;}
 	void addLight(LightSource* ls)

@@ -1,8 +1,8 @@
-//sphere.cpp
+//sphere_dielectric.cpp
 
-#include "sphere.h"
+#include "sphere_dielectric.h"
 
-bool Sphere::intersect(Ray& r) const
+bool Sphere_2::intersect(Ray& r) const
 {
 	Vector3D centerVector = r.getOrigin() - position;
 	double a = 1.0;

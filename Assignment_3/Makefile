@@ -19,7 +19,7 @@ SOURCES = ./src/main.cpp
 SOURCES += ../depends/imgui/imgui_impl_glfw.cpp ../imgui_impl_opengl3.cpp
 SOURCES += ./src/imgui_setup.cpp 
 SOURCES += ../../depends/imgui/imgui.cpp ../../depends/imgui/imgui_demo.cpp ../../depends/imgui/imgui_draw.cpp ../../depends/imgui/imgui_widgets.cpp
-SOURCES += ./src/camera.cpp ./src/color.cpp ./src/material.cpp ./src/ray.cpp ./src/sphere.cpp ./src/triangle.cpp ./src/vector3D.cpp ./src/world.cpp ./src/renderengine.cpp
+SOURCES += ./src/camera.cpp ./src/color.cpp ./src/material.cpp ./src/ray.cpp ./src/sphere.cpp ./src/triangle.cpp ./src/sphere_dielectric.cpp ./src/vector3D.cpp ./src/world.cpp ./src/renderengine.cpp
 OBJS = $(addsuffix .o, $(basename $(notdir $(SOURCES))))
 UNAME_S := $(shell uname -s)
 
