@@ -55,7 +55,7 @@ int main(int, char**)
     m->ka = 0.1;
     m->kd = 0.7;
 
-    Object *sphere = new Sphere(Vector3D(3, 0, -10), 6, m);
+    Object *sphere = new Sphere(Vector3D(3, 0, -10), 3, m);
     world->addObject(sphere);
 
     Object *triangle = new Triangle(Vector3D(-6, 0, 0), Vector3D(-3, 3, 0), Vector3D(-3, 0, 0), m);
